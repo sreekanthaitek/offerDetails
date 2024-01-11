@@ -10,7 +10,7 @@
     <link rel="icon" href="logo.jpeg" style="border-radius: 25px;">
     <style>
          body{
-            background-image: linear-gradient(to right, #ba7f92,#b396b0,#b396b0,rgb(112, 112, 149));
+            background-image: linear-gradient(to right, #8894d1,#4072df,hsl(188, 65%, 65%),rgb(49, 225, 146));
         }
         .button{
             width: 250px;
@@ -23,13 +23,21 @@
             margin-bottom: 20px;
             height: 60px;
         }
+        .logo{
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
+    <div class="text-end me-4 mt-3">
+        <a class="navbar-brand text-end" href="https://www.aitekltd.com/">
+            <img src="logo.jpeg" alt="" width="120" height="70" class="logo">
+        </a>
+    </div>
     <h1 class="text-center text-warning"><b><i>Fill up the details</i></b></h1>
     <div class="d-flex justify-content-center">
         <a href="/update"><button class="btn btn-warning me-2 button"><b>Update</b></button></a>
-        <a href="/search"><button class="btn btn-primary me-2 button"><b>Search</b></button></a>
+        <a href="/search"><button class="btn btn-danger me-2 button"><b>Search</b></button></a>
     </div>
     <form method="post" action="/upload">
         <div class="container">
