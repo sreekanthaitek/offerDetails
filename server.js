@@ -92,7 +92,7 @@ app.get('/upload',(req,res)=>{
   res.sendFile(__dirname+'/public/offerForm.html');
 });
 
-app.post('/update',authenticate async (req, res) => {
+app.post('/update',authenticate, async (req, res) => {
   let lName = req.body.lName1;
     let {fName,nationality,birthPlace,passNumber,pid,ped,pic,dob,gender,race,religion,ms,homeAdd,spouse,child,mail,tCon,mCon,bankDetails,pBank} = req.body;
     let {addrBank,accNum,sortCode,bLocation,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr} = req.body;
