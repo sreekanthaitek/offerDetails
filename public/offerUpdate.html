@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="icon" href="logo.jpeg" style="border-radius: 25px;">
+    <style>
+         body{
+            background-image: linear-gradient(to right, #ba7f92,#b396b0,#b396b0,rgb(112, 112, 149));
+        }
+        .button{
+            width: 250px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            height: 50px;
+        }
+        .button:hover{
+            width: 300px;
+            margin-bottom: 20px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center text-warning"><b><i>Fill up the details</i></b></h1>
+    <form action="/getDetails" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col-md">
+                    <label for="name" class="form-label ms-2"><b class="text-danger star">* </b><b>Name</b></label>
+                    <input type="text" class="form-control move" id="lName" name="lName" required placeholder="Please enter your Name">
+                    <button class="btn btn-warning w-100 mt-2"><b><i>Get Details</i></b></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form method="post" action="/update">
+        <div class="container">
+            <div class="row">
+                <h3><b><i>Staff Particulars</i></b></h3>
+                <div class="col-sm mt-2">
+                    <label><b><i>Last Name/Surname/Family Name</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your Surname" id="lName1" name="lName1">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>First Name</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your First name" id="fName" name="fName">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Nationality(i.e citizenship)</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your Nationality" id="nationality" name="nationality">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Birth Place(Country)</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your Birth Place" id="birthPlace" name="birthPlace">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm mt-2">
+                    <label><b><i>Passport Number</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your Passport Number" id="passNumber" name="passNumber">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Passport issued date(eg 10th Aug 1990)</i></b></label>
+                    <input class="form-control move" placeholder="Please enter issued date" id="pid" name="pid">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Passport expiry date(eg 10th Aug 1990)</i></b></label>
+                    <input class="form-control move" placeholder="Please enter expiry date" id="ped" name="ped">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Passport issued country </i></b></label>
+                    <input class="form-control move mb-3" placeholder="Please enter specific country" id="pic" name="pic">
+                </div>
+            </div>
+            <div class="row">
+                <h3><b><i>Other Personal Details</i></b></h3>
+                <div class="col-sm mt-2">
+                    <label><b><i>Date of Birth</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your DOB" id="dob" name="dob">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Gender</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your gender" id="gender" name="gender">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Race</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your race" id="race" name="race">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Religion</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your Religion" id="religion" name="religion">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Martial Status</i></b></label>
+                    <input class="form-control move" placeholder="Married?" id="ms" name="ms">
+                </div>
+            </div>
+            <div class="row">
+                <div class="mt-2 col-sm">
+                    <label><b><i>Home address</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your address" id="homeAdd" name="homeAdd">
+                </div>
+            </div>
+            <div class="row">
+                <div class="mt-2 col-sm">
+                    <label><b><i>Name of spouse</i></b></label>
+                    <input class="form-control move" placeholder="Please fill this field" id="spouse" name="spouse">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Number of children</i></b></label>
+                    <input class="form-control move" placeholder="Please fill this field" id="child" name="child">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Personal Mail</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your email" type="text" id="mail" name="mail">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Telephone contact</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your tel contact" id="tCon" name="tCon">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Mobile Contact</i></b></label>
+                    <input class="form-control move mb-3" placeholder="Please enter your mobile contact" id="mCon" name="mCon">
+                </div>
+            </div>
+            <div class="row">
+                <h3><b><i>Bank Details</i></b></h3>
+                <div class="col-sm mt-2">
+                    <label><b><i>Name as per bank account</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your name" id="bankDetails" name="bankDetails">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Personal bank name and branch</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your bank name" id="pBank" name="pBank">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Address of bank(with postal code)</i></b></label>
+                    <input class="form-control move" placeholder="Please enter address of the bank" id="addrBank" name="addrBank">
+                </div>
+            </div>
+            <div class="row">
+                <div class="mt-2 col-sm">
+                    <label><b><i>Personal bank account number</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your account number" id="accNum" name="accNum">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Sort code/Bank Key</i></b></label>
+                    <input class="form-control move" placeholder="You can ignore if you dont have" id="sortCode" name="sortCode">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Branch address/location</i></b></label>
+                    <input class="form-control move" placeholder="You can ignore if you dont have" id="bLocation" name="bLocation">
+                </div>
+            </div>
+            <div class="row">
+                <div class="mt-2 col-sm">
+                    <label><b><i>Swift-Code/IFSC Code</i></b></label>
+                    <input class="form-control move" placeholder="Please enter the Swift-Code" id="swiftCode" name="swiftCode">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>IBAN</i></b></label>
+                    <input class="form-control move" placeholder="You can ignore if you dont have" id="iban" name="iban">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Any other Bank identifying info</i></b></label>
+                    <input class="form-control move" placeholder="You can ignore if you dont have" id="bInfo" name="bInfo">
+                </div>
+            </div>
+            <div class="mt-2 col-sm">
+                <label><b><i>Tax Identification Number</i></b></label>
+                <input class="form-control move" placeholder="You can ignore if you dont have any" id="taxIdentity" name="taxIdentity">
+            </div>
+            <div class="row mt-3">
+                <h3><b><i>Emergency Contact</i></b></h3>
+                <div class="col-sm mt-2">
+                    <label><b><i>Name of the person</i></b></label>
+                    <input class="form-control move" placeholder="Please enter the name" id="emgName" name="emgName">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Relationship to staff</i></b></label>
+                    <input class="form-control move" placeholder="Please fill this field" id="emgRelation" name="emgRelation">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm mt-2">
+                    <label><b><i>Contact Number(with Country Code)</i></b></label>
+                    <input class="form-control move" placeholder="Please fill this field" id="contact" name="contact">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Address (with postal code)</i></b></label>
+                    <input class="form-control move mb-3" placeholder="Please fill this field" id="addr" name="addr">
+                </div>
+            </div>
+        </div>
+        <center><button class="btn btn-danger button"><b><i>Submit</i></b></button></center>
+    </form>
+    <script>
+        document.querySelector('form:first-of-type').addEventListener('submit', async function (event) {
+        event.preventDefault();
+    
+        //const lName = document.querySelector('[lName="lName"]').value;
+        const lName = document.getElementById('lName').value;
+        const response = await fetch('/getDetails', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `lName=${lName}`,
+        });
+    
+        const data = await response.json();
+        console.log(data.lName);
+        if (data.message) {
+            alert(data.message);
+        } else {
+            document.getElementById('lName1').value = data.lName;
+            document.getElementById('fName').value = data.fName;
+            document.getElementById('nationality').value = data.nationality;
+            document.getElementById('birthPlace').value = data.birthPlace;
+            document.getElementById('passNumber').value = data.passNumber;
+            document.getElementById('pid').value = data.pid;
+            document.getElementById('ped').value = data.ped;
+            document.getElementById('pic').value = data.pic;
+            document.getElementById('dob').value = data.dob;
+            document.getElementById('gender').value = data.gender;
+            document.getElementById('race').value = data.race;
+            document.getElementById('religion').value = data.religion;
+            document.getElementById('ms').value = data.ms;
+            document.getElementById('homeAdd').value = data.homeAdd;
+            document.getElementById('spouse').value = data.spouse;
+            document.getElementById('child').value = data.child;
+            document.getElementById('mail').value = data.mail;
+            document.getElementById('tCon').value = data.tCon;
+            document.getElementById('mCon').value = data.mCon;
+            document.getElementById('bankDetails').value = data.bankDetails;  
+            document.getElementById('pBank').value = data.pBank;
+            document.getElementById('addrBank').value = data.addrBank;
+            document.getElementById('accNum').value = data.accNum;
+            document.getElementById('sortCode').value = data.sortCode;
+            document.getElementById('bLocation').value = data.bLocation;
+            document.getElementById('swiftCode').value = data.swiftCode;
+            document.getElementById('iban').value =  data.iban;
+            document.getElementById('bInfo').value = data.bInfo;
+            document.getElementById('taxIdentity').value = data.taxIdentity;
+            document.getElementById('emgName').value = data.emgName;
+            document.getElementById('emgRelation').value = data.emgRelation;
+            document.getElementById('contact').value = data.contact;
+            document.getElementById('addr').value = data.addr;
+        }
+        });
+    </script>
+    <script>
+        $(function(){
+        var keyLeft = 37;
+        var keyRight = 39;
+        var keyUp = 38;
+        var keyDown = 40;
+        $(document).keydown(
+            function(e)
+            {
+                var moves = $(".move");
+                if (e.keyCode == keyRight) {
+                    for(i = 0; i <= moves.length; i++) {
+                        if (moves[i] == $(".move:focus").get(0)) {
+                           $(moves[i + 1]).focus();
+                            break;
+                        }
+                    }
+                }
+                if (e.keyCode == keyLeft) {
+                    for(i = 0; i <= moves.length; i++) {
+                        if (moves[i] == $(".move:focus").get(0)) {
+                           $(moves[i - 1]).focus();
+                            break;
+                        }
+                    }
+                }
+                if (e.keyCode == keyDown) {
+                    for(i = 0; i <= moves.length; i++) {
+                        if (moves[i] == $(".move:focus").get(0)) {
+                           $(moves[i + 6]).focus();
+                            break;
+                        }
+                    }
+                }
+                if (e.keyCode == keyUp) {
+                    for(i = 0; i <= moves.length; i++) {
+                        if (moves[i] == $(".move:focus").get(0)) {
+                           $(moves[i - 6]).focus();
+                            break;
+                        }
+                    }
+                }
+            }
+        );
+    });
+    </script>
+</body>
+</html>
