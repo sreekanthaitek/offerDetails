@@ -26,6 +26,10 @@
         .logo{
             border-radius: 10px;
         }
+        .last{
+            background-image: linear-gradient(to right, #8894d1,#4072df,hsl(188, 65%, 65%),rgb(49, 225, 146));
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -197,6 +201,11 @@
                     <input class="form-control move mb-3" placeholder="Please fill this field" id="addr" name="addr">
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm mt-2">
+                    <input class="form-control move mb-3 last" id="fullName" name="fullName" readonly>
+                </div>
+            </div>
         </div>
         <center><button class="btn btn-danger button" onclick="details()"><b><i>Submit</i></b></button></center>
     </form>
@@ -270,7 +279,9 @@
             let emgRelation1 = (emgRelation==='')? text:emgRelation;
             let contact1 = (contact==='')? text:contact;
             let addr1 = (addr==='')? text:addr;
-    /*------------------------------------------------------------------------------------------------------------------*/ document.getElementById('fName').value; document.getElementById('lName').value;
+            let fullName = fName+" "+lName;
+    /*------------------------------------------------------------------------------------------------------------------*/ 
+            document.getElementById('fName').value; document.getElementById('lName').value;
             document.getElementById('nationality').value = nationality1;
             document.getElementById('birthPlace').value = birthPlace1;
             document.getElementById('passNumber').value = passNumber1;
@@ -302,6 +313,7 @@
             document.getElementById('emgRelation').value = emgRelation1;
             document.getElementById('contact').value = contact1;
             document.getElementById('addr').value = addr1;
+            document.getElementById('fullName').value = fullName;
         }
     </script>
     <script>
