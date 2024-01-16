@@ -63,7 +63,6 @@ const inputSchema = new mongoose.Schema({
     addrBank: String,
     accNum: String,
     sortCode: String,
-    bLocation: String,
     swiftCode: String,
     iban: String,
     bInfo: String,
@@ -96,12 +95,12 @@ app.get('/upload',authenticate,(req,res)=>{
 app.post('/update',authenticate, async (req, res) => {
     let lName = req.body.lName1;
     let {fName,nationality,birthPlace,passNumber,pid,ped,pic,dob,gender,race,religion,ms,homeAdd,spouse,child,mail,tCon,mCon,bankDetails,pBank} = req.body;
-    let {addrBank,accNum,sortCode,bLocation,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr} = req.body;
+    let {addrBank,accNum,sortCode,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr} = req.body;
     let fullName = fName+" "+lName;
     try {
       const updatedUser = await InputData.findOneAndUpdate(
         {lName},
-        {fName,fullName,nationality,birthPlace,passNumber,pid,ped,pic,dob,gender,race,religion,ms,homeAdd,spouse,child,mail,tCon,mCon,bankDetails,pBank,addrBank,accNum,sortCode,bLocation,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr},
+        {fName,fullName,nationality,birthPlace,passNumber,pid,ped,pic,dob,gender,race,religion,ms,homeAdd,spouse,child,mail,tCon,mCon,bankDetails,pBank,addrBank,accNum,sortCode,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr},
         { new: true },
       );
       if (updatedUser) {
@@ -153,7 +152,7 @@ app.post('/getDetails',authenticate, async (req, res) => {
 
 app.post('/upload',authenticate,async(req,res)=>{
     let {lName,fName,fullName,nationality,birthPlace,passNumber,pid,ped,pic,dob,gender,race,religion,ms,homeAdd,spouse,child,mail,tCon,mCon,bankDetails,pBank} = req.body;
-    let {addrBank,accNum,sortCode,bLocation,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr} = req.body;
+    let {addrBank,accNum,sortCode,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr} = req.body;
     try{
         const inputData = new InputData({
             fullName: fullName,
@@ -181,7 +180,6 @@ app.post('/upload',authenticate,async(req,res)=>{
             addrBank: addrBank,
             accNum: accNum,
             sortCode: sortCode,
-            bLocation: bLocation,
             swiftCode: swiftCode,
             iban: iban,
             bInfo: bInfo,
