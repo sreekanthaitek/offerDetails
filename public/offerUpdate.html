@@ -9,8 +9,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link rel="icon" href="logo.jpeg" style="border-radius: 25px;">
     <style>
-         body{
+        .last{
             background-image: linear-gradient(to right, #8894d1,#4072df,hsl(188, 65%, 65%),rgb(49, 225, 146));
+            border: none;
+        }
+         body{
+            background-image: linear-gradient(to right, #677bdf,#4072df,hsl(188, 65%, 65%),rgb(49, 225, 146));
         }
         .button{
             width: 250px;
@@ -31,8 +35,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md">
-                    <label for="name" class="form-label ms-2"><b class="text-danger star">* </b><b>Name</b></label>
-                    <input type="text" class="form-control move" id="lName" name="lName" required placeholder="Please enter your Name">
+                    <label for="fullName" class="form-label ms-2"><b class="text-danger star">* </b><b>Name</b></label>
+                    <input type="text" class="form-control move" id="fullName" name="fullName" required placeholder="Please enter in format: First name + last name eg: Vikram Batra">
                     <button class="btn btn-warning w-100 mt-2"><b><i>Get Details</i></b></button>
                 </div>
             </div>
@@ -196,6 +200,11 @@
                     <input class="form-control move mb-3" placeholder="Please fill this field" id="addr" name="addr">
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm mt-2">
+                    <input class="form-control move mb-3 last" id="fullName" name="fullName" readonly>
+                </div>
+            </div>
         </div>
         <center><button class="btn btn-danger button"><b><i>Submit</i></b></button></center>
     </form>
@@ -204,13 +213,13 @@
         event.preventDefault();
     
         //const lName = document.querySelector('[lName="lName"]').value;
-        const lName = document.getElementById('lName').value;
+        const fullName = document.getElementById('fullName').value;
         const response = await fetch('/getDetails', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `lName=${lName}`,
+            body: `fullName=${fullName}`,
         });
     
         const data = await response.json();
