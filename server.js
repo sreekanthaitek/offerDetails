@@ -38,6 +38,7 @@ const authenticate = (req, res, next) => {
 mongoose.connect(conn);
 
 const inputSchema = new mongoose.Schema({
+    fullName: String,
     lName: String,
     fName: String,
     nationality: String,
@@ -88,22 +89,22 @@ app.get('/contact',authenticate,(req,res)=>{
   res.sendFile(__dirname+'/public/contact.html');
 });
 
-app.get('/upload',(req,res)=>{
+app.get('/upload',authenticate,(req,res)=>{
   res.sendFile(__dirname+'/public/offerForm.html');
 });
 
 app.post('/update',authenticate, async (req, res) => {
-  let lName = req.body.lName1;
+    let lName = req.body.lName1;
     let {fName,nationality,birthPlace,passNumber,pid,ped,pic,dob,gender,race,religion,ms,homeAdd,spouse,child,mail,tCon,mCon,bankDetails,pBank} = req.body;
     let {addrBank,accNum,sortCode,bLocation,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr} = req.body;
+    let fullName = fName+" "+lName;
     try {
       const updatedUser = await InputData.findOneAndUpdate(
         {lName},
-        {fName,nationality,birthPlace,passNumber,pid,ped,pic,dob,gender,race,religion,ms,homeAdd,spouse,child,mail,tCon,mCon,bankDetails,pBank,addrBank,accNum,sortCode,bLocation,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr},
+        {fName,fullName,nationality,birthPlace,passNumber,pid,ped,pic,dob,gender,race,religion,ms,homeAdd,spouse,child,mail,tCon,mCon,bankDetails,pBank,addrBank,accNum,sortCode,bLocation,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr},
         { new: true },
       );
       if (updatedUser) {
-        //res.json(updatedUser);
         let z = fs.readFileSync("public/submit.html")
         res.send(z.toString())
       } else {
@@ -116,9 +117,9 @@ app.post('/update',authenticate, async (req, res) => {
   });
 
 app.post('/getDetails',authenticate, async (req, res) => {
-    const lName = req.body.lName;  
+    const fullName = req.body.fullName;  
     try {
-      const user = await InputData.findOne({ lName });
+      const user = await InputData.findOne({ fullName });
       if (user) {
         res.json(user);
       } else {
@@ -136,7 +137,7 @@ app.post('/getDetails',authenticate, async (req, res) => {
   app.post('/search',authenticate, (req, res) => {
     const searchName = req.body.search_name;
   
-    InputData.findOne({ lName: searchName }).exec()
+    InputData.findOne({ fullName: searchName }).exec()
       .then(result => {
         if (result) {
           res.render('result', { result: result });
@@ -150,11 +151,12 @@ app.post('/getDetails',authenticate, async (req, res) => {
       });
   }); 
 
-app.post('/upload',async(req,res)=>{
-    let {lName,fName,nationality,birthPlace,passNumber,pid,ped,pic,dob,gender,race,religion,ms,homeAdd,spouse,child,mail,tCon,mCon,bankDetails,pBank} = req.body;
+app.post('/upload',authenticate,async(req,res)=>{
+    let {lName,fName,fullName,nationality,birthPlace,passNumber,pid,ped,pic,dob,gender,race,religion,ms,homeAdd,spouse,child,mail,tCon,mCon,bankDetails,pBank} = req.body;
     let {addrBank,accNum,sortCode,bLocation,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr} = req.body;
     try{
         const inputData = new InputData({
+            fullName: fullName,
             lName: lName,
             fName: fName,
             nationality: nationality,
