@@ -157,16 +157,16 @@
                     <label><b><i>Sort code/Bank Key</i></b></label>
                     <input class="form-control move" placeholder="You can ignore if you dont have" id="sortCode" name="sortCode">
                 </div>
-                <div class="mt-2 col-sm">
+                <!--<div class="mt-2 col-sm">
                     <label><b><i>Branch address/location</i></b></label>
                     <input class="form-control move" placeholder="You can ignore if you dont have" id="bLocation" name="bLocation">
-                </div>
-            </div>
-            <div class="row">
+                </div>-->
                 <div class="mt-2 col-sm">
                     <label><b><i>Swift-Code/IFSC Code</i></b></label>
                     <input class="form-control move" placeholder="Please enter the Swift-Code" id="swiftCode" name="swiftCode">
                 </div>
+            </div>
+            <div class="row">
                 <div class="mt-2 col-sm">
                     <label><b><i>IBAN</i></b></label>
                     <input class="form-control move" placeholder="You can ignore if you dont have" id="iban" name="iban">
@@ -175,10 +175,10 @@
                     <label><b><i>Any other Bank identifying info</i></b></label>
                     <input class="form-control move" placeholder="You can ignore if you dont have" id="bInfo" name="bInfo">
                 </div>
-            </div>
-            <div class="mt-2 col-sm">
-                <label><b><i>Tax Identification Number</i></b></label>
-                <input class="form-control move" placeholder="You can ignore if you dont have any" id="taxIdentity" name="taxIdentity">
+                <div class="mt-2 col-sm">
+                    <label><b><i>Tax Identification Number</i></b></label>
+                    <input class="form-control move" placeholder="You can ignore if you dont have any" id="taxIdentity" name="taxIdentity">
+                </div>
             </div>
             <div class="row mt-3">
                 <h3><b><i>Emergency Contact</i></b></h3>
@@ -235,7 +235,6 @@
             let addrBank = document.getElementById('addrBank').value;
             let accNum = document.getElementById('accNum').value;
             let sortCode = document.getElementById('sortCode').value;
-            let bLocation = document.getElementById('bLocation').value;
             let swiftCode = document.getElementById('swiftCode').value;
             let iban = document.getElementById('iban').value;
             let bInfo = document.getElementById('bInfo').value;
@@ -270,7 +269,6 @@
             let addrBank1 = (addrBank==='')? text:addrBank;
             let accNum1 = (accNum==='')? text:accNum;
             let sortCode1 = (sortCode==='')? text:sortCode;
-            let bLocation1 = (bLocation==='')? text:bLocation;
             let swiftCode1 = (swiftCode==='')? text:swiftCode;
             let iban1 = (iban==='')? text:iban;
             let bInfo1 = (bInfo==='')? text:bInfo;
@@ -304,7 +302,6 @@
             document.getElementById('addrBank').value = addrBank1;
             document.getElementById('accNum').value = accNum1;
             document.getElementById('sortCode').value = sortCode1;
-            document.getElementById('bLocation').value = bLocation1;
             document.getElementById('swiftCode').value = swiftCode1;
             document.getElementById('iban').value =  iban1;
             document.getElementById('bInfo').value = bInfo1;
