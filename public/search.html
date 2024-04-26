@@ -10,7 +10,7 @@
   <link rel="icon" href="logo.jpeg" style="border-radius: 25px;">
   <style>
     body{
-      background-image: linear-gradient(to right, #8894d1,#4072df,hsl(188, 65%, 65%),rgb(49, 225, 146));
+      background-image: linear-gradient(to right, #677bdf,#4072df,hsl(188, 65%, 65%),rgb(49, 225, 146));
     }
     .block{
       padding-top: 210px;
@@ -19,15 +19,50 @@
   </style>
 </head>
 <body>
-    <div class="text-center">
-      <form action="/search" method="post">
-      <div class="mt-5 pt-5">
-        <h4 class="mt-3 heading text-dark"><b><i>Search By Name</i></b></h4>
-        <center><input type="text" id="search_name" name="search_name" class="form-control w-50" required placeholder="Please enter in format: First name + last name eg: Vikram Batra"></center>
-        <button type="submit" class="btn btn-success mt-3 w-50"><b>Search</b></button>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form action="/search" method="post">
+            <div class="mt-5 pt-5">
+              <h4 class="mt-3 heading text-dark"><b><i>Search By Name</i></b></h4>
+              <input type="text" id="search_name" name="search_name" class="form-control " placeholder="First name + Last name e.g: Vikram Batra">
+              <button type="submit" class="btn btn-dark mt-3"><b>Search</b></button>
+            </div>
+          </form>
+        </div>
+        <div class="col">
+          <form action="/fSearch" method="post">
+            <div class="mt-5 pt-5">
+              <h4 class="mt-3 heading text-dark"><b><i>Search By First Name</i></b></h4>
+              <input type="text" id="f_name" name="f_name" class="form-control " placeholder="First name">
+              <button type="submit" class="btn btn-dark mt-3 "><b>Search</b></button>
+            </div>
+          </form>
+        </div>
       </div>
-      </form>
-      <a href="/upload"><button class="btn btn-warning homeButton w-50 mt-3"><b>Go To Upload Page</b></button></a>
+        <div class="row">
+          <div class="col">
+            <form action="/lSearch" method="post">
+              <div class="mt-5 pt-5">
+                <h4 class="mt-3 heading text-dark"><b><i>Search By Last Name</i></b></h4>
+                <input type="text" id="l_name" name="l_name" class="form-control " placeholder="Last name">
+                <button type="submit" class="btn btn-dark mt-3 "><b>Search</b></button>
+              </div>
+            </form>
+          </div>
+          <div class="col">
+            <form action="/phoneSearch" method="post">
+              <div class="mt-5 pt-5">
+                <h4 class="mt-3 heading text-dark"><b><i>Search By Phone Number</i></b></h4>
+                <input type="text" id="phone" name="phone" class="form-control " placeholder="Last name">
+                <button type="submit" class="btn btn-dark mt-3 "><b>Search</b></button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row text-center mt-4">
+          <a href="/upload"><button class="btn btn-warning homeButton mt-3"><b>Go To Upload Page</b></button></a>
+        </div>
     </div>
 </body>
 </html>
