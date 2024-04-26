@@ -150,6 +150,57 @@ app.post('/getDetails',authenticate, async (req, res) => {
       });
   }); 
 
+  app.post('/fSearch',authenticate, (req, res) => {
+    const searchName = req.body.f_name;
+  
+    InputData.findOne({ fName: searchName }).exec()
+      .then(result => {
+        if (result) {
+          res.render('result', { result: result });
+        } else {
+          res.render('result', { error: "No data found for the given name." });
+        }
+      })
+      .catch(err => {
+        console.log(searchName);
+        res.render('Please check the spelling');
+      });
+  });  
+
+  app.post('/lSearch',authenticate, (req, res) => {
+    const searchName = req.body.l_name;
+  
+    InputData.findOne({ lName: searchName }).exec()
+      .then(result => {
+        if (result) {
+          res.render('result', { result: result });
+        } else {
+          res.render('result', { error: "No data found for the given name." });
+        }
+      })
+      .catch(err => {
+        console.log(searchName);
+        res.render('Please check the spelling');
+      });
+  });
+
+  app.post('/phoneSearch',authenticate, (req, res) => {
+    const searchName = req.body.phone;
+  
+    InputData.findOne({ mCon: searchName }).exec()
+      .then(result => {
+        if (result) {
+          res.render('result', { result: result });
+        } else {
+          res.render('result', { error: "No data found for the given name." });
+        }
+      })
+      .catch(err => {
+        console.log(searchName);
+        res.render('Please check the spelling');
+      });
+  });
+
 app.post('/upload',authenticate,async(req,res)=>{
     let {lName,fName,fullName,nationality,birthPlace,passNumber,pid,ped,pic,dob,gender,race,religion,ms,homeAdd,spouse,child,mail,tCon,mCon,bankDetails,pBank} = req.body;
     let {addrBank,accNum,sortCode,swiftCode,iban,bInfo,taxIdentity,emgName,emgRelation,contact,addr} = req.body;
